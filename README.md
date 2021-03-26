@@ -1,6 +1,12 @@
 # Ngrams
 Utilities for downloading and reducing Google Ngram data
 
+Because the Google Ngram data is so so large, I worked on ways to reduce it and make accessing it faster. 
+1. I do not need the development of the usage of the word over time, rather, just the overall usage. So I sum the occurences for each year. The code is set up to only consider occurances after a given year, which is 0 AD by default.
+2. Parts of speech are also not so important to me, so I reduce the number of entries even further. In fact, in the Ngram data any line which has an underscore in it can be neglected, because they are all redundant to one entry which has no POS indication. In the 3-gram series, for example, this leads to 10 entries becoming just 1, because you have 9 combinations with POS indicated.
+3. I only keep 1-gram-like entries, and I squash them back into readable single-word format. For example, the 3-gram "cat ' s" becomes "cat's" and the 3 gram "my cat ate" is discarded.
+At the end, I have a database that I can query for occurances for a given Ngram, but in a format that simplifies the occurances of what Google considers 3-grams into equivalent sensible 1-grams (see point 3. above). From about 1.22 TB of GZipped data I get a SQLite database of about 415 MB, which is managable.
+
 Instructions for building a usable database from raw ngram data:
 
 1. Download all ngram data into a folder using download_ngrams_v2020.py
