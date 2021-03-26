@@ -3,7 +3,7 @@ Utilities for downloading and reducing Google Ngram data
 
 Instructions for building a usable database from raw ngram data:
 
-1. Download all ngram data into a folder using K:\NGRAM\eng using download_ngrams_v2020.py
+1. Download all ngram data into a folder using download_ngrams_v2020.py
 
 2. Run ngramReduceParallel_v2020.py
      - Must specify source and target folder in code (e.g. eng or ger)
@@ -17,7 +17,8 @@ Instructions for building a usable database from raw ngram data:
 ***ngramReduceParallel_v2020.py:***
 Takes *.gz text files in specified folder. 
 Sums all occurrences through time for all words. 
-Creates text file reducedNgrams.txt with line format: [word]	[total_occurrences]
+Creates text file reducedNgrams.txt with line format: [word]	[total_occurrences]\
+Converts the text file into an indexed SQLite database for fast lookups.
 - is not language-aware
 - does not do any error checking of input data (e.g. does the word exist, or is it an OCR error?)
 - keeps only 1-gram-like entries by default, e.g. "cat - people" -> "cat-people" and "her 's" -> "her's"
