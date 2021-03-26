@@ -18,11 +18,11 @@ Instructions for building a usable database from raw ngram data:
 Takes *.gz text files in specified folder
 Sums all occurrences through time for all words
 Creates text file reducedNgrams.txt with line format: [word]	[total_occurrences]
-     - is not language-aware
-     - does not do any error checking of input data (e.g. does the word exist, or is it an OCR error?)
-     - keeps only 1-gram-like entries by default, e.g. "cat - people" -> "cat-people" and "her 's" -> "her's"
-     - All other ngrams are thrown away
-     - 4-grams would be completely ignored for example
+- is not language-aware
+- does not do any error checking of input data (e.g. does the word exist, or is it an OCR error?)
+- keeps only 1-gram-like entries by default, e.g. "cat - people" -> "cat-people" and "her 's" -> "her's"
+- All other ngrams are thrown away
+- 4-grams would be completely ignored for example
 
 ***download_ngrams_v2020.py:***
 Downloads ngram data automatically from Google using list of hard-coded URLs
